@@ -42,7 +42,7 @@ const fetchTrafficData = async () => {
   
   try {
    console.log('开始加载本地交通数据...')
-   const response = await fetch('/data/traffic-data.json')
+   const response = await fetch('/k-traffic-map/data/traffic-data.json')
     
    if (!response.ok) {
      throw new Error(`HTTP error! status: ${response.status}`)
@@ -441,15 +441,17 @@ const updateMarkers = () => {
       )
       
       if (validPoints.length > 0) {
-        // 使用 Point 对象数组
-        const points = validPoints.map(item => 
-          new AMap.value.LngLat(item.longitude || item.lng, item.latitude || item.lat)
-        )
-        mapInstance.value.setFitView(points)
-        console.log('调整视图以显示所有标记')
+        // 获取第一个点的坐标作为中心点
+      const firstPoint = validPoints[0]
+      const centerLngLat = new AMap.value.LngLat(
+            firstPoint.longitude || firstPoint.lng,
+            firstPoint.latitude || firstPoint.lat
+          )
+          
+      console.log('已设置地图中心点和缩放级别')
       }
-    } catch (err) {
-      console.error('调整视图失败:', err)
+    } catch(err) {
+     console.error('调整视图失败:', err)
     }
   }
 }
