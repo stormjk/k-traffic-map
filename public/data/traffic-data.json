@@ -1,0 +1,94 @@
+{
+  "retCode": "success",
+  "retMsg": "成功",
+  "data": [
+    {
+      "fid": "3398",
+      "fname": "柳雪路灞桥驿至东李驿由北向南区间测速",
+      "flocation": "柳雪路祥云路至蓝田界 - 柳雪路祥云路至蓝田界",
+      "farea": "灞桥区",
+      "flatitude": "34.271998",
+      "flongitude": "109.109836",
+      "fphotoArea": "超速",
+      "fstatus": "1",
+      "fcreateTime": "2025-08-01 10:39:18"
+    },
+    {
+      "fid": "3402",
+      "fname": "长乐东路新医路西向东违停球",
+      "flocation": "长乐路全段长乐东路与新医路交叉口（西向东方向）",
+      "farea": "灞桥区",
+      "flatitude": "34.285123",
+      "flongitude": "109.056789",
+      "fphotoArea": "违法停车",
+      "fstatus": "1",
+      "fcreateTime": "2025-08-01 10:40:22"
+    },
+    {
+      "fid": "3408",
+      "fname": "半引路常家湾小学由南向北卡口",
+      "flocation": "半引路常家湾至长安交界段",
+      "farea": "灞桥区",
+      "flatitude": "34.256789",
+      "flongitude": "109.023456",
+      "fphotoArea": "限行、打电话、不系安全带、逆行",
+      "fstatus": "1",
+      "fcreateTime": "2025-08-01 10:41:15"
+    },
+    {
+      "fid": "3412",
+      "fname": "半引路常家湾小学由北向南卡口",
+      "flocation": "半引路常家湾至长安交界段",
+      "farea": "灞桥区",
+      "flatitude": "34.257890",
+      "flongitude": "109.024567",
+      "fphotoArea": "限行、打电话、不按导向行驶、不系安全带、逆行",
+      "fstatus": "1",
+      "fcreateTime": "2025-08-01 10:42:30"
+    },
+    {
+      "fid": "3418",
+      "fname": "长平路与青萍路（火箭军大学门口）西向东电警",
+      "flocation": "长平路与青萍路丁字",
+      "farea": "灞桥区",
+      "flatitude": "34.268901",
+      "flongitude": "109.035678",
+      "fphotoArea": "闯红灯、压线、不按导向行驶、限行、不系安全带、打电话",
+      "fstatus": "1",
+      "fcreateTime": "2025-08-01 10:43:45"
+    },
+    {
+      "fid": "3644",
+      "fname": "文昌门 - 和平门隧道东向西测速卡口",
+      "flocation": "环南路文昌门 - 和平门东出入口",
+      "farea": "碑林区",
+      "flatitude": "34.251234",
+      "flongitude": "108.956789",
+      "fphotoArea": "超速",
+      "fstatus": "1",
+      "fcreateTime": "2025-08-01 11:00:00"
+    },
+    {
+      "fid": "3700",
+      "fname": "含光门 - 朱雀门隧道西向东摩托车禁行",
+      "flocation": "环南路含光门 - 朱雀门隧道西口",
+      "farea": "碑林区",
+      "flatitude": "34.252345",
+      "flongitude": "108.947890",
+      "fphotoArea": "限行",
+      "fstatus": "1",
+      "fcreateTime": "2025-08-01 11:05:00"
+    },
+    {
+      "fid": "3720",
+      "fname": "太乙路铁一局子校南向北车让人监测设备",
+      "flocation": "太乙路铁一局子中门口",
+      "farea": "碑林区",
+      "flatitude": "34.248901",
+      "flongitude": "108.968901",
+      "fphotoArea": "车不让人",
+      "fstatus": "1",
+      "fcreateTime": "2025-08-01 11:10:00"
+    }
+  ]
+}

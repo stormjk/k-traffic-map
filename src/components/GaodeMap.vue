@@ -18,8 +18,8 @@ const AMap = ref(null)
 const defaultCenter = gaodeConfig.defaultCenter
 const defaultZoom = gaodeConfig.defaultZoom
 
-// 筛选类型
-const selectedType = ref('全部')
+// 筛选类型 - 默认选择限行
+const selectedType = ref('限行')
 
 // 固定的交通违法类型列表
 const FIXED_TYPES = [
@@ -35,32 +35,25 @@ const FIXED_TYPES = [
   '车不让人'
 ]
 
-// 从 API 获取交通数据
+// 从本地文件加载交通数据
 const fetchTrafficData = async () => {
   loading.value = true
   error.value = null
   
   try {
-    console.log('开始获取交通数据...')
-    const response = await fetch('https://traffic.xianjiaojing.com/api/v1/dmvAppointment/TrafficLbs/query?farea=&fphotoArea=', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
-      // 设置超时时间
-      signal: AbortSignal.timeout(5000)
-    })
+   console.log('开始加载本地交通数据...')
+   const response = await fetch('/data/traffic-data.json')
     
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
+   if (!response.ok) {
+     throw new Error(`HTTP error! status: ${response.status}`)
     }
     
-    const result = await response.json()
-    console.log('获取到的原始数据:', result)
+   const result = await response.json()
+   console.log('加载到的本地数据:', result)
     
     // 根据实际数据结构解析数据
-    let rawData = []
-    if (result && result.data) {
+   let rawData = []
+   if (result && result.data) {
       rawData = Array.isArray(result.data) ? result.data : []
     } else if (Array.isArray(result)) {
       rawData = result
@@ -68,32 +61,26 @@ const fetchTrafficData = async () => {
       rawData = []
     }
     
-    console.log('解析前的数据数量:', rawData.length)
-    
-    // 打印前几条数据查看字段结构
-    if (rawData.length > 0) {
-      console.log('数据示例（前 3 条）:', rawData.slice(0, 3))
-      console.log('第一条数据的所有键名:', Object.keys(rawData[0]))
-    }
+   console.log('解析前的数据数量:', rawData.length)
     
     // 处理 fphotoArea 字段（用、分隔的多个类型）
     trafficData.value = processFphotoArea(rawData)
     
-    console.log('处理后的数据:', trafficData.value)
-    dataLoaded.value = true
+   console.log('处理后的数据:', trafficData.value)
+   dataLoaded.value = true
     
     // 数据加载完成后更新地图标记
-    if (mapInstance.value && trafficData.value.length > 0) {
+   if (mapInstance.value && trafficData.value.length> 0) {
       updateMarkers()
     }
   } catch (err) {
-    console.error('获取交通数据失败:', err)
-    error.value = '获取交通数据失败，使用模拟数据'
+   console.error('加载本地数据失败:', err)
+    error.value = '加载数据失败，请检查数据文件是否存在'
     
     // 使用模拟数据进行测试
-    loadMockData()
+   loadMockData()
   } finally {
-    loading.value = false
+   loading.value = false
   }
 }
 
